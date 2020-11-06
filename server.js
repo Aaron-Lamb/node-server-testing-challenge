@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const UserRouter = require('./users/users-router');
 
 const server = express();
 
 server.use(express.json());
 server.use(cors());
+server.use('/users', UserRouter);
 
 server.get('/', (req, res) => {
     return res.status(200).json({
